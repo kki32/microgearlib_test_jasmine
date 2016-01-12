@@ -377,7 +377,7 @@ xdescribe('Subscribe same topic twice', function () {
 });
 
 //prerequisite: helper code 4. need to end helper. publish_helper.js
-describe('Subscribe topic after unsubscribe before', function () {
+xdescribe('Subscribe topic after unsubscribe before', function () {
     var microgear;
     var topic = "/firstTopic";
     var message = "Hello from helper.";
@@ -435,7 +435,51 @@ describe('Subscribe topic after unsubscribe before', function () {
 });
 
 //prerequisite: helper code 4. need to end helper. publish_helper.js
-xdescribe('Unsubbscribe topic after subscribe', function () {
+xdescribe('Subscribe invalid topic - no slash', function () {
+    var microgear;
+    var received;
+    var topic = "firstTopic";
+    var message = "Hello from helper.";
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+
+    beforeEach(function () {
+        received = false;
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should not receive message from invalid topic', function (done) {
+        microgear.on("message", function(topic, msg) {
+            received = true;
+            //TODO: gearalias not set ne
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            microgear.subscribe(topic);
+        },5000);
+
+        setTimeout(function () {
+            expect(received).toBeFalsy();
+            done();
+        }, 9000)
+
+        microgear.connect(appid);
+    }, 10000);
+});
+
+//prerequisite: helper code 4. need to end helper. publish_helper.js
+xdescribe('Unsubscribe topic after subscribe', function () {
     var microgear;
     var topic = "/firstTopic";
     var message = "Hello from helper.";
