@@ -300,8 +300,91 @@ xdescribe('Resettoken when no cache file', function () {
 });
 
 //prerequisite: need to call helper before/later. publish_helper.js ๅ
+xdescribe('Publish to topic that subscribe afterwards + publish to topic empty string', function () {
+    var microgear;
+    var topic = "/firstTopic";
+    var message = 'Hello subscribers.';
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
 
+    beforeEach(function () {
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
 
+        fs.writeFile(pathToFile, "", function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log("create empty file!");
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            console.log("con");
+            microgear.client.end();
+        }
+        fs.unlinkSync(pathToFile);
+    });
+
+    it('subscriber should receive the message when subscribe after start publishing', function (done) {
+        console.log("first");
+        microgear.on('connected', function() {
+            connected = true;
+            setInterval(function() {
+                microgear.publish(topic, message);
+                console.log("publish message");
+            },1000);
+
+            fs.watchFile(pathToFile, function(curr, prev) {
+
+                fs.readFile(pathToFile, 'utf8', function (err, data) {
+                    if (err) {
+                        console.log("no file");
+                        return console.log(err);
+                    }
+                    console.log("this is da" + data.toString() + "her");
+                    expect(data.toString()).toEqual(message);
+                    clearInterval();
+                    fs.unwatchFile(pathToFile);
+                    done();
+                });
+            });
+        },5000);
+        microgear.connect(appid);
+    }, 10000);
+    it('subscriber should receive the message when subscribe empty topic', function (done) {
+        console.log("second");
+        topic = "";
+        microgear.on('connected', function() {
+            connected = true;
+            setInterval(function() {
+                microgear.publish(topic, message);
+                console.log("publish message");
+            },1000);
+
+            fs.watchFile(pathToFile, function(curr, prev) {
+
+                fs.readFile(pathToFile, 'utf8', function (err, data) {
+                    if (err) {
+                        console.log("no file");
+                        return console.log(err);
+                    }
+                    console.log("this is da" + data.toString() + "her");
+                    expect(data.toString()).toEqual(message);
+                    clearInterval();
+                    fs.unwatchFile(pathToFile);
+                    done();
+                });
+            });
+        },5000);
+        microgear.connect(appid);
+    }, 10000);
+});
 
 xdescribe('Publish to topic that the publisher subscribed itself', function () {
     var microgear;
@@ -363,6 +446,83 @@ xdescribe('Publish to topic that the publisher subscribed itself', function () {
         microgear.connect(appid);
     }, 10000);
 
+});
+
+xdescribe('Publish to topic that subscribe other topic', function () {
+    var microgear;
+    var appkey;
+    var appsecret;
+    var appid;
+    var connected;
+    var received;
+    var topic;
+    var message;
+    var modified;
+    beforeEach(function () {
+        topic = '/firstTopic';
+        message = 'Hello myself.';
+        microgear = undefined;
+        appkey     = 'NLc1b8a3UZPMhOY';
+        appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+        appid = 'testNodeJs';
+        connected = false;
+        received = false;
+        modified = false;
+        expect(microgear).toBeUndefined();
+
+        microgear = MicroGear.create({
+            key : appkey,
+            secret : appsecret});
+
+        fs.writeFile(pathToFile, "", function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log("create empty file!");
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('subscribers should not receive message from topic it does not subscribe', function (done) {
+        console.log("first");
+        microgear.on('connected', function() {
+            connected = true;
+            setInterval(function() {
+                microgear.publish(topic, message);
+                console.log("publish message");
+            },1000);
+
+
+            fs.watchFile(pathToFile, function(curr, prev) {
+                modified = true;
+                fs.readFile(pathToFile, 'utf8', function (err, data) {
+                    if (err) {
+                        console.log("no file");
+                        return console.log(err);
+                    }
+                    console.log("this is da" + data.toString() + "her");
+                    expect(data.toString()).toEqual(message);
+                });
+            });
+
+            setTimeout(function () {
+                expect(modified).toBeFalsy();
+                clearInterval();
+                fs.unwatchFile(pathToFile);
+                done();
+            }, 8000);
+
+
+        },5000);
+        microgear.connect(appid);
+
+
+    }, 10000);
 });
 
 xdescribe('Publish to invalid topic - no slash', function () {
