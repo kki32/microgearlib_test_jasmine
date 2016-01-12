@@ -299,7 +299,45 @@ xdescribe('Resettoken when no cache file', function () {
     }, 10000);
 });
 
-//prerequisite: need to call helper before/later. publish_helper.js ๅ
+//prerequisite: helper code 4. need to end helper. publish_helper.js
+describe('Subscribe one topic', function () {
+    var microgear;
+    var topic = "/firstTopic";
+    var message = "Hello from helper.";
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+
+    beforeEach(function () {
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should receive message from topic that the helper publish', function (done) {
+        microgear.on("message", function(topic, msg) {
+            //TODO: gearalias not set ne
+            expect(msg+"").toBe(message);
+            done();
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            microgear.subscribe(topic);
+        },5000);
+
+        microgear.connect(appid);
+    }, 10000);
+});
+
+//prerequisite: need to call helper before/later. publish_helper.js
 xdescribe('Publish to topic that subscribe afterwards + publish to topic empty string', function () {
     var microgear;
     var topic = "/firstTopic";
@@ -428,7 +466,7 @@ xdescribe('Publish to topic that the publisher subscribed itself', function () {
                 console.log("publish message");
             },1000);
 
-        }, 1000);
+        });
 
 
         microgear.on("message", function (topic, msg) {
@@ -448,7 +486,7 @@ xdescribe('Publish to topic that the publisher subscribed itself', function () {
 
 });
 
-xdescribe('Publish to topic that subscribe other topic', function () {
+xdescribe('Publish to microgear that subscribe other topic', function () {
     var microgear;
     var appkey;
     var appsecret;
