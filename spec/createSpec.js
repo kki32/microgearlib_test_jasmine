@@ -419,3 +419,51 @@ xdescribe('Publish to topic that the publisher subscribed itself', function () {
     }, 10000);
 
 });
+
+xdescribe('Publish to invalid topic - no slash', function () {
+    var count;
+    var microgear;
+    var appkey;
+    var appsecret;
+    var appid;
+    var connected;
+    var received;
+    var invalidTopic;
+    var message;
+
+    beforeEach(function () {
+        count = 0;
+        invalidTopic = 'firstTopic';
+        message = 'Hello myself.';
+        microgear = undefined;
+        appkey     = 'NLc1b8a3UZPMhOY';
+        appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+        appid = 'testNodeJs';
+        connected = false;
+        received = false;
+        expect(microgear).toBeUndefined();
+
+        microgear = MicroGear.create({
+            key : appkey,
+            secret : appsecret});
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should have some kind of error/warning', function (done) {
+        microgear.on('connected', function () {
+            count += 1;
+            connected = true;
+            microgear.publish(invalidTopic, message);
+            if(count > 3){
+                done();
+            }
+        }, 1000);
+        microgear.connect(appid);
+    }, 10000);
+
+});
