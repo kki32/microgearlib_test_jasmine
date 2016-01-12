@@ -338,7 +338,7 @@ xdescribe('Subscribe one topic', function () {
 });
 
 //prerequisite: helper code 4. need to end helper. publish_helper.js
-describe('Subscribe same topic twice', function () {
+xdescribe('Subscribe same topic twice', function () {
     var microgear;
     var topic = "/firstTopic";
     var message = "Hello from helper.";
@@ -370,6 +370,134 @@ describe('Subscribe same topic twice', function () {
             connected = true;
             microgear.subscribe(topic);
             microgear.subscribe(topic);
+        },5000);
+
+        microgear.connect(appid);
+    }, 10000);
+});
+
+//prerequisite: helper code 4. need to end helper. publish_helper.js
+describe('Subscribe topic after unsubscribe before', function () {
+    var microgear;
+    var topic = "/firstTopic";
+    var message = "Hello from helper.";
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+    var count;
+    var subscribed;
+
+    beforeEach(function () {
+        count = 0;
+        subscribed = false;
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should receive message when helper publish topic', function (done) {
+        microgear.on("message", function(topic, msg) {
+            console.log(count);
+            count += 1;
+            //TODO: gearalias not set ne
+            expect(msg+"").toBe(message);
+            if(count > 6){
+                expect(subscribed).toBeTruthy();
+                done();
+            }
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            subscribed = true;
+            microgear.subscribe(topic);
+            expect(subscribed).toBeTruthy();
+            setTimeout(function () {
+                subscribed = false;
+                microgear.unsubscribe(topic);
+                expect(subscribed).toBeFalsy();
+                setTimeout(function () {
+                    subscribed = true;
+                    microgear.subscribe(topic);
+                }, 2000);
+            }, 4000);
+        },5000);
+
+        microgear.connect(appid);
+    }, 10000);
+});
+
+//prerequisite: helper code 4. need to end helper. publish_helper.js
+xdescribe('Unsubbscribe topic after subscribe', function () {
+    var microgear;
+    var topic = "/firstTopic";
+    var message = "Hello from helper.";
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+    var count;
+    var previousCount;
+    var subscribed;
+
+    beforeEach(function () {
+        previousCount = 0;
+        count = 0;
+        subscribed = false;
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should receive message when helper publish topic', function (done) {
+        microgear.on("message", function(topic, msg) {
+            console.log(count);
+            console.log(count);
+            count += 1;
+            //TODO: gearalias not set ne
+            expect(msg+"").toBe(message);
+            if(count > 6){
+                expect(subscribed).toBeTruthy();
+                done();
+            }
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            subscribed = true;
+            microgear.subscribe(topic);
+            expect(subscribed).toBeTruthy();
+            setTimeout(function () {
+                subscribed = false;
+                previousCount = count;
+                microgear.unsubscribe(topic);
+                console.log(previousCount);
+                console.log(count);
+
+                setTimeout(function () {
+                    if(previousCount == count){
+                        console.log(previousCount);
+                        console.log(count);
+                        expect(subscribed).toBe(false);
+                        done();
+                    }
+                }, 2000);
+                expect(subscribed).toBeFalsy();
+                console.log(count);
+            }, 4000);
         },5000);
 
         microgear.connect(appid);
