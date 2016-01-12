@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="42c7c6b2-18c8-407d-989e-7b6c2d7944c2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" afterPath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/createSpec.js" afterPath="$PROJECT_DIR$/spec/createSpec.js" />
     </list>
     <ignored path="microgearlib_test_jasmine.iws" />
@@ -43,8 +42,8 @@
       <file leaf-file-name="createSpec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2026578">
-              <caret line="301" column="68" selection-start-line="301" selection-start-column="68" selection-end-line="301" selection-end-column="68" />
+            <state vertical-scroll-proportion="0.7973422">
+              <caret line="378" column="55" selection-start-line="378" selection-start-column="55" selection-end-line="378" selection-end-column="55" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
                 <element signature="e#149#2263#0" expanded="false" />
@@ -54,12 +53,13 @@
                 <element signature="e#4750#6355#0" expanded="false" />
                 <element signature="e#6401#7800#0" expanded="false" />
                 <element signature="e#7859#8578#0" expanded="false" />
-                <element signature="e#8695#9626#0" expanded="false" />
-                <element signature="e#9798#12558#0" expanded="false" />
-                <element signature="e#11637#12547#0" expanded="false" />
-                <element signature="e#12641#14142#0" expanded="false" />
-                <element signature="e#14219#16283#0" expanded="false" />
-                <element signature="e#16348#17454#0" expanded="false" />
+                <element signature="e#8696#9627#0" expanded="false" />
+                <element signature="e#9751#10752#0" expanded="false" />
+                <element signature="e#10931#13691#0" expanded="false" />
+                <element signature="e#12770#13680#0" expanded="false" />
+                <element signature="e#13774#15275#0" expanded="false" />
+                <element signature="e#15352#17416#0" expanded="false" />
+                <element signature="e#17481#18587#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,8 +91,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/node_modules/jasmine-node/bin/microgear.cache" />
-        <option value="$PROJECT_DIR$/spec/createSpec.js" />
         <option value="$PROJECT_DIR$/spec/microgearSpec.js" />
+        <option value="$PROJECT_DIR$/spec/createSpec.js" />
       </list>
     </option>
   </component>
@@ -338,7 +338,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452584867756</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add subscribe to one topic">
+      <created>1452587205101</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1452587205101</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -390,19 +396,20 @@
     <MESSAGE value="add publish to invalid topic" />
     <MESSAGE value="add publish to empty topic&#10;combine helper 1 and 2" />
     <MESSAGE value="add publish to microgear that subscribe other topic" />
-    <option name="LAST_COMMIT_MESSAGE" value="add publish to microgear that subscribe other topic" />
+    <MESSAGE value="add subscribe to one topic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add subscribe to one topic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/spec/createSpec.js</url>
-          <line>426</line>
+          <line>465</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/spec/createSpec.js</url>
-          <line>349</line>
+          <line>388</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
@@ -434,12 +441,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -475,12 +483,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -516,12 +525,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -557,12 +567,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -598,12 +609,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -646,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2026578">
-          <caret line="301" column="68" selection-start-line="301" selection-start-column="68" selection-end-line="301" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.7973422">
+          <caret line="378" column="55" selection-start-line="378" selection-start-column="55" selection-end-line="378" selection-end-column="55" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
@@ -657,12 +669,13 @@
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
             <element signature="e#7859#8578#0" expanded="false" />
-            <element signature="e#8695#9626#0" expanded="false" />
-            <element signature="e#9798#12558#0" expanded="false" />
-            <element signature="e#11637#12547#0" expanded="false" />
-            <element signature="e#12641#14142#0" expanded="false" />
-            <element signature="e#14219#16283#0" expanded="false" />
-            <element signature="e#16348#17454#0" expanded="false" />
+            <element signature="e#8696#9627#0" expanded="false" />
+            <element signature="e#9751#10752#0" expanded="false" />
+            <element signature="e#10931#13691#0" expanded="false" />
+            <element signature="e#12770#13680#0" expanded="false" />
+            <element signature="e#13774#15275#0" expanded="false" />
+            <element signature="e#15352#17416#0" expanded="false" />
+            <element signature="e#17481#18587#0" expanded="false" />
           </folding>
         </state>
       </provider>
