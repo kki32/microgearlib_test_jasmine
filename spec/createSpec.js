@@ -164,13 +164,15 @@ xdescribe('Chat with myself', function () {
     }, 10000);
 });
 
-describe('Resettoken when have microgear.cache and microgear is offline', function () {
+xdescribe('Resettoken when have microgear.cache and microgear is offline', function () {
+    var connected;
     var microgear;
     var appkey = 'NLc1b8a3UZPMhOY';
     var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
     var appid = 'testNodeJs';
 
     beforeEach(function (done) {
+        connected = false;
         microgear = MicroGear.create({
             key: appkey,
             secret: appsecret
@@ -178,6 +180,9 @@ describe('Resettoken when have microgear.cache and microgear is offline', functi
         microgear.connect(appid, done);
     });
     afterEach(function () {
+        if(connected) {
+            microgear.client.end();
+        }
         fs.unlinkSync(filePath);
     });
 
@@ -205,3 +210,90 @@ describe('Resettoken when have microgear.cache and microgear is offline', functi
         });
     }, 10000);
 });
+
+xdescribe('Resettoken twice', function () {
+    var connected;
+    var microgear;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+
+    beforeEach(function (done) {
+        connected = false;
+
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            expect(connected).toBeTruthy();
+            done();
+        });
+        microgear.connect(appid);
+    });
+    afterEach(function () {
+        if(connected) {
+            microgear.client.end();
+        }
+        fs.unlinkSync(filePath);
+    });
+
+    it('should just resettoken like usual', function (done) {
+        if(connected) {
+            connected = false;
+            microgear.client.end();
+        }
+        expect(connected).toBeFalsy();
+
+        var data = fs.readFileSync(filePath, 'utf8');
+        expect(data.toString()).not.toEqual('{"_":null}');
+
+        microgear.resettoken(function (result) {
+            var data2 = fs.readFileSync(filePath, 'utf8');
+            expect(data2.toString()).toEqual('{"_":null}');
+
+            microgear.resettoken(function (result2) {
+                var data4 = fs.readFileSync(filePath, 'utf8');
+                expect(data4.toString()).toEqual('{"_":null}');
+                done();
+            });
+        });
+
+    }, 10000);
+});
+
+xdescribe('Resettoken when no cache file', function () {
+    var fileExist;
+    var microgear;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+
+    beforeEach(function (done) {
+        fileExist = false;
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+
+        if(fs.existsSync(filePath)){
+            fileExist = true;
+            fs.unlinkSync(filePath);
+            fileExist = false;
+        }
+        expect(fileExist).toBeFalsy();
+        done();
+    });
+
+    it('should do nothing', function (done) {
+        microgear.resettoken(function (result) {
+            expect(true).toBeTruthy();
+            done();
+        });
+    }, 10000);
+});
+
+
+
+
