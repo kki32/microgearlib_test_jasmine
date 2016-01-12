@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c7c6b2-18c8-407d-989e-7b6c2d7944c2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/helper/publish_helper/publish_helper_1.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" afterPath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/createSpec.js" afterPath="$PROJECT_DIR$/spec/createSpec.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/microgearSpec.js" afterPath="$PROJECT_DIR$/spec/microgearSpec.js" />
     </list>
@@ -28,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="microgearSpec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="microgearSpec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1132076">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6181818">
+              <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -40,21 +42,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createSpec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createSpec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9003322">
-              <caret line="468" column="3" selection-start-line="468" selection-start-column="3" selection-end-line="468" selection-end-column="3" />
+            <state vertical-scroll-proportion="-7.814815">
+              <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
                 <element signature="e#149#2263#0" expanded="false" />
                 <element signature="e#2326#3104#0" expanded="false" />
+                <element signature="e#3150#4659#0" expanded="false" />
                 <element signature="e#4033#4648#0" expanded="false" />
                 <element signature="e#4750#6355#0" expanded="false" />
                 <element signature="e#6401#7800#0" expanded="false" />
-                <element signature="e#8720#10400#0" expanded="false" />
-                <element signature="e#10483#11990#0" expanded="false" />
-                <element signature="e#12055#13161#0" expanded="false" />
+                <element signature="e#7859#8578#0" expanded="false" />
+                <element signature="e#8734#10241#0" expanded="false" />
+                <element signature="e#10306#11412#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,8 +89,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/node_modules/jasmine-node/bin/microgear.cache" />
-        <option value="$PROJECT_DIR$/spec/microgearSpec.js" />
         <option value="$PROJECT_DIR$/spec/createSpec.js" />
+        <option value="$PROJECT_DIR$/spec/microgearSpec.js" />
       </list>
     </option>
   </component>
@@ -315,7 +318,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452572701935</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add publish to invalid topic">
+      <created>1452573753677</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1452573753677</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -364,7 +373,8 @@
     <MESSAGE value="publish topic that subscribe before" />
     <MESSAGE value="add publish to topic that subscribe before/afterwards. combine helpers 1 and 2." />
     <MESSAGE value="add publish to itself" />
-    <option name="LAST_COMMIT_MESSAGE" value="add publish to itself" />
+    <MESSAGE value="add publish to invalid topic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add publish to invalid topic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -391,12 +401,13 @@
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -427,12 +438,13 @@
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -463,12 +475,13 @@
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,12 +512,13 @@
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -535,12 +549,13 @@
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,30 +586,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1132076">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9003322">
-          <caret line="468" column="3" selection-start-line="468" selection-start-column="3" selection-end-line="468" selection-end-column="3" />
+        <state vertical-scroll-proportion="-7.814815">
+          <caret line="303" column="0" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
             <element signature="e#4033#4648#0" expanded="false" />
             <element signature="e#4750#6355#0" expanded="false" />
             <element signature="e#6401#7800#0" expanded="false" />
-            <element signature="e#8720#10400#0" expanded="false" />
-            <element signature="e#10483#11990#0" expanded="false" />
-            <element signature="e#12055#13161#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8734#10241#0" expanded="false" />
+            <element signature="e#10306#11412#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6181818">
+          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

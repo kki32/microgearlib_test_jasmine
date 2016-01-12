@@ -299,64 +299,9 @@ xdescribe('Resettoken when no cache file', function () {
     }, 10000);
 });
 
-//prerequisite: need to call helper before/later. publish_helper_1.js
-xdescribe('Publish to topic that subscribe afterwards', function () {
-    var microgear;
-    var topic = "/firstTopic";
-    var message = 'Hello subscribers.';
-    var connected = false;
-    var appkey = 'NLc1b8a3UZPMhOY';
-    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
-    var appid = 'testNodeJs';
+//prerequisite: need to call helper before/later. publish_helper.js ๅ
 
-    beforeEach(function () {
-        microgear = MicroGear.create({
-            key: appkey,
-            secret: appsecret
-        });
 
-        fs.writeFile(pathToFile, "", function(err) {
-            if(err) {
-                return console.log(err);
-            }
-            console.log("create empty file!");
-        });
-    });
-
-    afterEach(function () {
-        if(connected){
-            console.log("con");
-            microgear.client.end();
-        }
-        fs.unlinkSync(pathToFile);
-    });
-
-    it('subscriber should receive the message', function (done) {
-        microgear.on('connected', function() {
-            connected = true;
-            setInterval(function() {
-                microgear.publish(topic, message);
-                console.log("publish message");
-            },1000);
-
-            fs.watchFile(pathToFile, function(curr, prev) {
-
-                fs.readFile(pathToFile, 'utf8', function (err, data) {
-                    if (err) {
-                        console.log("no file");
-                        return console.log(err);
-                    }
-                    console.log("this is da" + data.toString() + "her");
-                    expect(data.toString()).toEqual(message);
-                    clearInterval();
-                    fs.unwatchFile(pathToFile);
-                    done();
-                });
-            });
-        },5000);
-        microgear.connect(appid);
-    }, 5000);
-});
 
 xdescribe('Publish to topic that the publisher subscribed itself', function () {
     var microgear;
