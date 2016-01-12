@@ -26,7 +26,6 @@ microgear = MicroGear.create({
 
 microgear.on('connected', function() {
 	console.log('Connected...');
-	microgear.setalias(gearname);
 	microgear.subscribe(topic);
 });
 

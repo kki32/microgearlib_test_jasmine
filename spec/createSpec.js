@@ -299,11 +299,11 @@ xdescribe('Resettoken when no cache file', function () {
     }, 10000);
 });
 
-//prerequisite: run its first
-describe('Publish to topic that subscribe before', function () {
+//prerequisite: need to call helper before/later. publish_helper_1.js
+xdescribe('Publish to topic that subscribe afterwards', function () {
     var microgear;
     var topic = "/firstTopic";
-    var message = 'Hello subscriber(s).';
+    var message = 'Hello subscribers.';
     var connected = false;
     var appkey = 'NLc1b8a3UZPMhOY';
     var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
@@ -324,30 +324,36 @@ describe('Publish to topic that subscribe before', function () {
     });
 
     afterEach(function () {
-        microgear.client.end();
+        if(connected){
+            console.log("con");
+            microgear.client.end();
+        }
         fs.unlinkSync(pathToFile);
     });
 
     it('subscriber should receive the message', function (done) {
         microgear.on('connected', function() {
             connected = true;
-            microgear.setalias("myself-pb-1");
-            microgear.publish(topic, message);
-            setTimeout(function () {
+            setInterval(function() {
+                microgear.publish(topic, message);
+                console.log("publish message");
+            },1000);
+
+            fs.watchFile(pathToFile, function(curr, prev) {
+
                 fs.readFile(pathToFile, 'utf8', function (err, data) {
                     if (err) {
                         console.log("no file");
                         return console.log(err);
                     }
                     console.log("this is da" + data.toString() + "her");
-                    expect(data.toString()).toEqual("Hello subscriber(s).");
+                    expect(data.toString()).toEqual(message);
+                    clearInterval();
+                    fs.unwatchFile(pathToFile);
                     done();
                 });
-                console.log("i am inside");
-            }, 2500);
-        },3000);
+            });
+        },5000);
         microgear.connect(appid);
-    }, 10000);
+    }, 5000);
 });
-
-
