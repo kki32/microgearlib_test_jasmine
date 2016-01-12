@@ -357,3 +357,65 @@ xdescribe('Publish to topic that subscribe afterwards', function () {
         microgear.connect(appid);
     }, 5000);
 });
+
+xdescribe('Publish to topic that the publisher subscribed itself', function () {
+    var microgear;
+    var appkey;
+    var appsecret;
+    var appid;
+    var connected;
+    var received;
+    var topic;
+    var message;
+
+    beforeEach(function () {
+        topic = '/firstTopic';
+        message = 'Hello myself.';
+        microgear = undefined;
+        appkey     = 'NLc1b8a3UZPMhOY';
+        appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+        appid = 'testNodeJs';
+        connected = false;
+        received = false;
+        expect(microgear).toBeUndefined();
+
+        microgear = MicroGear.create({
+            key : appkey,
+            secret : appsecret});
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should receive message', function (done) {
+
+        microgear.on('connected', function () {
+            connected = true;
+            microgear.subscribe(topic);
+            setInterval(function() {
+                microgear.publish(topic, message);
+                console.log("publish message");
+            },1000);
+
+        }, 1000);
+
+
+        microgear.on("message", function (topic, msg) {
+            received = true;
+            expect(connected).toBeTruthy();
+            expect(received).toBeTruthy();
+            //TODO: gearalias not set.
+            //expect(topic).toBe(appid + "/" + "gearname" + "/" + microgear.gearalias);
+            expect(msg + "").toBe(message);
+            clearInterval();
+            done();
+        });
+
+
+        microgear.connect(appid);
+    }, 10000);
+
+});
