@@ -6,7 +6,7 @@ var appkey    = 'NLc1b8a3UZPMhOY';
 var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
 var appid = 'testNodeJs'
 var fs = require('fs');
-var pathToFile = "/Users/tsn/Desktop/microgear_test_jasmine/microgear-test-jasmine/spec/receiver.txt";
+var pathToFile = "/Users/tsn/Desktop/microgearlib_test_jasmine/helper/receiver.txt";
 var topic = '/firstTopic';
 var topModule = module;
 while(topModule.parent) {

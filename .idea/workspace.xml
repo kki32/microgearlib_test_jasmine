@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c7c6b2-18c8-407d-989e-7b6c2d7944c2" name="Default" comment="" />
+    <list default="true" id="42c7c6b2-18c8-407d-989e-7b6c2d7944c2" name="Default" comment="still not finish resettoken">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" afterPath="$PROJECT_DIR$/helper/publish_helper/microgear.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helper/publish_helper/publish_helper_1.js" afterPath="$PROJECT_DIR$/helper/publish_helper/publish_helper_1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/createSpec.js" afterPath="$PROJECT_DIR$/spec/createSpec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/microgearSpec.js" afterPath="$PROJECT_DIR$/spec/microgearSpec.js" />
+    </list>
     <ignored path="microgearlib_test_jasmine.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="microgearSpec.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="microgearSpec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5487805">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -36,18 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createSpec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="createSpec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3703704">
-              <caret line="260" column="11" selection-start-line="260" selection-start-column="11" selection-end-line="260" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.6402439">
+              <caret line="300" column="0" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
                 <element signature="e#149#2263#0" expanded="false" />
                 <element signature="e#2326#3104#0" expanded="false" />
                 <element signature="e#3150#4659#0" expanded="false" />
-                <element signature="e#4750#6208#0" expanded="false" />
-                <element signature="e#7712#8431#0" expanded="false" />
+                <element signature="e#4750#6355#0" expanded="false" />
+                <element signature="e#6401#7800#0" expanded="false" />
+                <element signature="e#7859#8578#0" expanded="false" />
+                <element signature="e#8675#10181#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,7 +65,7 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-4.375">
               <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding />
             </state>
@@ -73,7 +82,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/NodeJsTestingSuite" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -124,6 +133,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -156,28 +167,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="microgearlib_test_jasmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="microgearlib_test_jasmine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -323,14 +318,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5730337" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5730337" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44634527" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23429084" sideWeight="0.42696628" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44634527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44634527" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -372,14 +367,51 @@
     <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="260" column="11" selection-start-line="260" selection-start-column="11" selection-end-line="260" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#149#2263#0" expanded="false" />
+            <element signature="e#2326#3104#0" expanded="false" />
+            <element signature="e#3150#4659#0" expanded="false" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
             <element signature="e#3150#4659#0" expanded="false" />
-            <element signature="e#4750#6208#0" expanded="false" />
-            <element signature="e#7712#8431#0" expanded="false" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -411,8 +443,10 @@
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
             <element signature="e#3150#4659#0" expanded="false" />
-            <element signature="e#4750#6208#0" expanded="false" />
-            <element signature="e#7712#8431#0" expanded="false" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -444,8 +478,10 @@
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
             <element signature="e#3150#4659#0" expanded="false" />
-            <element signature="e#4750#6208#0" expanded="false" />
-            <element signature="e#7712#8431#0" expanded="false" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -477,8 +513,10 @@
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
             <element signature="e#3150#4659#0" expanded="false" />
-            <element signature="e#4750#6208#0" expanded="false" />
-            <element signature="e#7712#8431#0" expanded="false" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -501,9 +539,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding />
         </state>
@@ -511,25 +559,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spec/createSpec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3703704">
-          <caret line="260" column="11" selection-start-line="260" selection-start-column="11" selection-end-line="260" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.6402439">
+          <caret line="300" column="0" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
             <element signature="e#149#2263#0" expanded="false" />
             <element signature="e#2326#3104#0" expanded="false" />
             <element signature="e#3150#4659#0" expanded="false" />
-            <element signature="e#4750#6208#0" expanded="false" />
-            <element signature="e#7712#8431#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/microgearSpec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5487805">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#4750#6355#0" expanded="false" />
+            <element signature="e#6401#7800#0" expanded="false" />
+            <element signature="e#7859#8578#0" expanded="false" />
+            <element signature="e#8675#10181#0" expanded="false" />
           </folding>
         </state>
       </provider>

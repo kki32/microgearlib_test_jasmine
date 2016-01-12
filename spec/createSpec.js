@@ -177,7 +177,12 @@ xdescribe('Resettoken when have microgear.cache and microgear is offline', funct
             key: appkey,
             secret: appsecret
         });
-        microgear.connect(appid, done);
+        microgear.on('connected', function() {
+            connected = true;
+            expect(connected).toBeTruthy();
+            done();
+        });
+        microgear.connect(appid);
     });
     afterEach(function () {
         if(connected) {
@@ -294,6 +299,55 @@ xdescribe('Resettoken when no cache file', function () {
     }, 10000);
 });
 
+//prerequisite: run its first
+describe('Publish to topic that subscribe before', function () {
+    var microgear;
+    var topic = "/firstTopic";
+    var message = 'Hello subscriber(s).';
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
 
+    beforeEach(function () {
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+
+        fs.writeFile(pathToFile, "", function(err) {
+            if(err) {
+                return console.log(err);
+            }
+            console.log("create empty file!");
+        });
+    });
+
+    afterEach(function () {
+        microgear.client.end();
+        fs.unlinkSync(pathToFile);
+    });
+
+    it('subscriber should receive the message', function (done) {
+        microgear.on('connected', function() {
+            connected = true;
+            microgear.setalias("myself-pb-1");
+            microgear.publish(topic, message);
+            setTimeout(function () {
+                fs.readFile(pathToFile, 'utf8', function (err, data) {
+                    if (err) {
+                        console.log("no file");
+                        return console.log(err);
+                    }
+                    console.log("this is da" + data.toString() + "her");
+                    expect(data.toString()).toEqual("Hello subscriber(s).");
+                    done();
+                });
+                console.log("i am inside");
+            }, 2500);
+        },3000);
+        microgear.connect(appid);
+    }, 10000);
+});
 
 
