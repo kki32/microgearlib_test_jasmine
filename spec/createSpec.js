@@ -472,7 +472,7 @@ xdescribe('Subscribe invalid topic - no slash', function () {
         setTimeout(function () {
             expect(received).toBeFalsy();
             done();
-        }, 9000)
+        }, 9000);
 
         microgear.connect(appid);
     }, 10000);
@@ -547,6 +547,67 @@ xdescribe('Unsubscribe topic after subscribe', function () {
         microgear.connect(appid);
     }, 10000);
 });
+
+//prerequisite: helper code 4. need to end helper. publish_helper.js
+describe('Unsubscribe new topic', function () {
+    var microgear;
+    var received;
+    var unsubscribed;
+    var subscribed;
+    var topic = "/firstTopic";
+    var message = "Hello from helper.";
+    var connected = false;
+    var appkey = 'NLc1b8a3UZPMhOY';
+    var appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+    var appid = 'testNodeJs';
+
+
+    beforeEach(function () {
+        subscribed = false;
+        unsubscribed = false;
+
+        received = false;
+        microgear = MicroGear.create({
+            key: appkey,
+            secret: appsecret
+        });
+    });
+
+    afterEach(function () {
+        if(connected){
+            microgear.client.end();
+        }
+    });
+
+    it('should not affect subscribe', function (done) {
+        microgear.on("message", function(topic, msg) {
+            received = true;
+            if(unsubscribed && subscribed){
+                expect(msg+"").toBe(message);
+                done();
+            }
+            else {
+                expect("should not receive message before subscribe").toBeFalsy();
+            }
+            //TODO: gearalias not set
+        });
+        microgear.on('connected', function() {
+            connected = true;
+            microgear.unsubscribe(topic);
+            unsubscribed = true;
+
+            setTimeout(function () {
+                microgear.subscribe(topic);
+                subscribed = true;
+            }, 2000);
+
+        },9000);
+
+
+        microgear.connect(appid);
+    }, 10000);
+});
+
 
 //prerequisite: need to call helper before/later code 1. publish_helper.js
 xdescribe('Publish to topic that subscribe afterwards + publish to topic empty string', function () {
