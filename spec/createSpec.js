@@ -2,6 +2,12 @@
  * Created by tsn on 1/8/2016 AD.
  */
 var MicroGear = require('microgear');
+var fs = require('fs');
+var pathToFile = "/Users/tsn/Desktop/microgearlib_test_jasmine/helper/receiver.txt";
+var pathToFile2 = "/Users/tsn/Desktop/microgearlib_test_jasmine/helper/receiver2.txt";
+//var helper = require('../helper/call_helper.js');
+var filePath = "/Users/tsn/Desktop/microgearlib_test_jasmine/node_modules/jasmine-node/bin/microgear.cache";
+
 
 xdescribe('Create microgear with different parameters', function () {
     var microgear;
@@ -107,7 +113,7 @@ xdescribe('Connect successfully, valid input', function () {
     }, 10000);
 
 });
-
+//need microgear before why>
 xdescribe('Chat with myself', function () {
     var microgear;
     var appkey;
@@ -129,12 +135,12 @@ xdescribe('Chat with myself', function () {
             key : appkey,
             secret : appsecret});
 
-        fs.exists(filePath, function(exists) {
-            if (!exists) {
-                //TODO: really?
-                expect(false).toBe("Pre-requisite: require microgear.cache file");
-            }
-        });
+        //fs.exists(filePath, function(exists) {
+        //    if (!exists) {
+        //        //TODO: really?
+        //        expect(false).toBe("Pre-requisite: require microgear.cache file");
+        //    }
+        //});
     });
 
     afterEach(function (){
@@ -329,6 +335,7 @@ xdescribe('Subscribe one topic', function () {
             done();
         });
         microgear.on('connected', function() {
+            console.log("iamon");
             connected = true;
             microgear.subscribe(topic);
         },5000);
@@ -549,7 +556,7 @@ xdescribe('Unsubscribe topic after subscribe', function () {
 });
 
 //prerequisite: helper code 4. need to end helper. publish_helper.js
-describe('Unsubscribe new topic', function () {
+xdescribe('Unsubscribe topic before subscribe', function () {
     var microgear;
     var received;
     var unsubscribed;
