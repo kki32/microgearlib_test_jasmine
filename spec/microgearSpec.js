@@ -85,7 +85,7 @@ xdescribe('Unsubscribe the same topic twice starts from unsubscribe', function (
     }, 10000);
 });
 
-xdescribe('Unsubscribe the same topic twice starts from subscribe', function () {
+describe('Unsubscribe the same topic twice starts from subscribe', function () {
     var microgear;
     var received;
     var subscribed;
@@ -133,7 +133,18 @@ xdescribe('Unsubscribe the same topic twice starts from subscribe', function () 
 
     it('should not receive message again after unsubscribe twice', function (done) {
         console.log("in microgearSpec");
-        done();
+        var spy = jasmine.createSpyObj('spy1', 'good');
+
+        microgear.on('connected', spy);
+        expect(spy).toHaveBeenCalled();
+
+        expect(spy.calls.count()).toEqual(1);
+
+            setTimeout(function () {
+
+                done();
+            }, 3000);
+        microgear.connect(appid);
         //microgear.on('connected', function () {
         //    connected = true;
         //    subscribed = false;
@@ -174,3 +185,53 @@ xdescribe('Unsubscribe the same topic twice starts from subscribe', function () 
 });
 
 
+xdescribe('Chat with myself', function () {
+    var microgear;
+    var appkey;
+    var appsecret;
+    var appid;
+    var connected;
+    var received;
+
+    beforeEach(function () {
+        microgear = undefined;
+        appkey     = 'NLc1b8a3UZPMhOY';
+        appsecret = 'tLzjQQ6FiGUhOX1LTSjtVKsnSExuX7';
+        appid = 'testNodeJs';
+        connected = false;
+        received = false;
+        expect(microgear).toBeUndefined();
+
+        microgear = MicroGear.create({
+            key : appkey,
+            secret : appsecret});
+
+        //fs.exists(filePath, function(exists) {
+        //    if (!exists) {
+        //        //TODO: really?
+        //        expect(false).toBe("Pre-requisite: require microgear.cache file");
+        //    }
+        //});
+    });
+
+    afterEach(function (){
+        //should fail if microgear is not connected
+        microgear.client.end();
+    });
+
+    it('should receive message', function (done) {
+        var spy = sinon.spy();
+
+        microgear.on('connected', spy);
+
+        setTimeout(function () {
+            console.log("check");
+            sinon.assert.calledOnce(spy);
+            done();
+        }, 3000);
+
+
+        microgear.connect(appid);
+
+    }, 10000);
+});
